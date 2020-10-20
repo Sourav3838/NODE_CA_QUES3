@@ -1,0 +1,15 @@
+<header class="main_header">
+	<nav class="main_header_nav">
+		<ul class="main_header_item_list">
+			<!-- everytime we were rendering to any .ejs page through controller we were  
+passing some value under the name of path,it will be fetched below-->
+			<!-- it will give class as active according the path matched, this 
+concept is used to apply styling on the specific page which is open 
+on that particular time -->
+			<li class="main_header_item"><a href="/" class="<%- (path==='/')?'active': ''%>">Home</a></li>
+			<li class="main_header_item">
+				<a href="/user/add-student" class="<%- (path==='/user/add-student')?'active': ''%>">Add-Student</a>
+			</li>
+		</ul>
+	</nav>
+</header>

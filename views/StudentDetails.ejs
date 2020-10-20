@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- this will include the partial named head.ejs from includes folder -->
+	<%- include("./includes/head")%>
+	<body>
+		<!-- this will include the partial named nav.ejs from includes folder -->
+		<!-- if some details are fetched then only the if part will work -->
+		<%- include("./includes/nav")%> <% if(student.length>0){ %>
+		<div>
+			<!--for each loop to loop through each students's details-->
+			<% for(students of student){ %>
+
+			<div class="container">
+				<br /><br />
+				<div class="row" style="background-color: teal; color: white">
+					<div class="col-md-6">
+						<!-- static image for every student -->
+						<img
+							style="padding-top: 10px; padding-bottom: 10px"
+							src="/img/static1.jpg"
+							height="80%"
+							width="80%"
+						/>
+					</div>
+					<div class="col-md-6">
+						<!-- display the detail of student -->
+						<h3>Student Id :- <%= students.id %></h3>
+						<h3>Student Name :- <%= students.name %></h3>
+						<h3>Student Age :- <%= students.age %></h3>
+						<h3>Student Course :- <%= students.course %></h3>
+						<h3>Enrolled Date :- :- <%= students.date %></h3>
+					</div>
+				</div>
+				<br /><br />
+			</div>
+
+			<% } %>
+		</div>
+		<!-- if no detail of student is fetched then else will come into play -->
+		<% }else{ %>
+		<h2>No students Found!!</h2>
+		<!-- this will include the partial named foot.ejs from includes folder -->
+		<% } %> <%- include("./includes/foot")%>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- this will include the partial named head.ejs from includes folder -->
+	<%- include("./includes/head")%>
+	<body>
+		<!-- this will include the partial named nav.ejs from includes folder -->
+		<%- include("./includes/nav")%>
+		<h1 class="main-text">Welcome student :)</h1>
+		<!-- if some details are fetched then only the if part will work -->
+		<% if(student.length>0){ %>
+		<div>
+			<ul>
+				<!--for each loop to loop through each student's details-->
+				<% for(students of student){ %>
+				<!-- display name of the student ,when user will click on the 
+particular name it will display details about that particular student only-->
+				<a href="/students/<%= students.id %>">
+					<li class="list-item"><br /><%= students.name %><br /><br /></li
+				></a>
+				<br />
+				<% } %>
+			</ul>
+		</div>
+		<!-- if no detail of student is fetched then else will come into play -->
+		<% }else{ %>
+		<h2>No students Found!!</h2>
+		<!-- this will include the partial named foot.ejs from includes folder -->
+		<% } %> <%- include("./includes/foot")%>
+	</body>
+</html>
